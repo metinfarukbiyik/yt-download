@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "lastUpdate": {
+    "day": 30,
+    "month": 1,
+    "year": 2025,
+    "fullDate": "2025-01-30"
+  },
+  "changeNotes": "İlk sürüm yayınlandı",
+  "downloadUrl": "https://github.com/metinfarukbiyik/youtube-downloader/archive/refs/heads/main.zip",
+  "minorChanges": [
+    "Başlangıç sürümü oluşturuldu",
+    "MP3 indirme özelliği eklendi",
+    "Temel UI tasarımı tamamlandı"
+  ]
+} 

@@ -15,7 +15,7 @@ const nextConfig = {
       stream: require.resolve('stream-browserify'),
     };
     return config;
-  }
+  },
 }
 
 module.exports = nextConfig 

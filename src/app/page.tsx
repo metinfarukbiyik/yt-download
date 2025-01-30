@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Head from "next/head";
+import { checkForUpdates } from "../utils/versionCheck";
 
 export default function Home() {
   const [url, setUrl] = useState("");
@@ -13,6 +14,17 @@ export default function Home() {
   const [downloadReady, setDownloadReady] = useState(false);
   const [downloadProgress, setDownloadProgress] = useState(0);
   const [downloadedFile, setDownloadedFile] = useState<Blob | null>(null);
+  const [updateAvailable, setUpdateAvailable] = useState(false);
+  const [updateInfo, setUpdateInfo] = useState<any>(null);
+
+  useEffect(() => {
+    checkForUpdates().then((result) => {
+      if (result.hasUpdate) {
+        setUpdateAvailable(true);
+        setUpdateInfo(result.versionInfo);
+      }
+    });
+  }, []);
 
   // YouTube URL'sini düzenleyen yardımcı fonksiyon
   const formatYouTubeUrl = (url: string) => {
@@ -146,6 +158,46 @@ export default function Home() {
         <meta name="description" content="YouTube videolarından yüksek kaliteli MP3 formatında müzik indirin. Hızlı, güvenli ve ücretsiz!" />
       </Head>
 
+      {/* Güncelleme Bildirimi */}
+      {updateAvailable && updateInfo && (
+        <div className="fixed top-4 right-4 max-w-sm z-50">
+          <div className="bg-purple-500/20 backdrop-blur-lg border border-purple-500/30 rounded-lg p-4 shadow-lg">
+            <div className="flex items-start gap-3">
+              <div className="flex-shrink-0">
+                <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-white font-medium mb-1">Yeni Güncelleme Mevcut!</h3>
+                <p className="text-sm text-gray-300 mb-2">
+                  Versiyon {updateInfo.version} - {updateInfo.changeNotes}
+                </p>
+                <p className="text-xs text-gray-400 mb-2">
+                  Yayın Tarihi: {updateInfo.lastUpdate.day}/{updateInfo.lastUpdate.month}/{updateInfo.lastUpdate.year}
+                </p>
+                <div className="flex gap-2">
+                  <a
+                    href={updateInfo.downloadUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-purple-400 hover:text-purple-300 font-medium"
+                  >
+                    İndir
+                  </a>
+                  <button
+                    onClick={() => setUpdateAvailable(false)}
+                    className="text-sm text-gray-400 hover:text-gray-300"
+                  >
+                    Kapat
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Animasyonlu Arka Plan */}
       <div className="animated-background min-h-screen">
         <div className="stars">
@@ -176,16 +228,25 @@ export default function Home() {
         <main className="relative min-h-screen flex flex-col items-center py-16 px-4 z-10">
           {/* Logo & Header */}
           <div className="w-full max-w-4xl text-center mb-12">
-            <div className="flex flex-col items-center gap-2">
-              <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-5xl font-extrabold tracking-tight heading-gradient mb-2">
-                YouTube MP3 İndirme
-        </h1>
-              <div className="w-24 h-1 rounded-full bg-gradient-to-r from-blue-500/50 via-purple-500/50 to-pink-500/50 mb-4" />
-              <p className="text-lg text-gray-300 font-light tracking-wide max-w-2xl">
-                Favori YouTube videolarınızı yüksek kaliteli MP3 formatında indirin
-        </p>
+            <div className="flex flex-row items-center justify-center gap-4">
+              <div className="flex flex-col items-center gap-2">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 flex items-center justify-center shadow-lg shadow-purple-500/10 backdrop-blur-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                    </svg>
+                  </div>
+                  <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-5xl font-extrabold tracking-tight heading-gradient mb-2">
+                    YouTube MP3 İndirme
+                  </h1>
+                </div>
+                <div className="w-24 h-1 rounded-full bg-gradient-to-r from-blue-500/50 via-purple-500/50 to-pink-500/50 mb-4" />
+                <p className="text-lg text-gray-300 font-light tracking-wide max-w-2xl">
+                  Favori YouTube videolarınızı yüksek kaliteli MP3 formatında indirin
+                </p>
+              </div>
             </div>
-      </div>
+          </div>
 
           {/* Main Content */}
           <div className="w-full max-w-4xl glass p-8 rounded-2xl relative overflow-hidden">

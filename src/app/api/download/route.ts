@@ -33,6 +33,7 @@ function formatFileName(text: string): string {
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
+export const maxDuration = 300; // 5 dakika timeout
 
 export async function POST(req: NextRequest): Promise<Response> {
   let tempFile: string | null = null;
