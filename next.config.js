@@ -16,9 +16,11 @@ const nextConfig = {
     };
     return config;
   },
-  functions: {
-    'api/download': {
-      maxDuration: 60
+  serverless: {
+    functions: {
+      'api/download': {
+        maxDuration: 60
+      }
     }
   }
 }
