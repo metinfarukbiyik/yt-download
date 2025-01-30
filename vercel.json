@@ -1,6 +1,6 @@
 {
   "functions": {
-    "/api/download": {
+    "api/download": {
       "maxDuration": 60
     }
   },
