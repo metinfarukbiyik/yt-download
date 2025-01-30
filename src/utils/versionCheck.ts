@@ -38,7 +38,7 @@ export async function checkForUpdates(): Promise<{
     // GitHub'dan version.json dosyasını çek
     try {
       const response = await fetch(
-        'https://raw.githubusercontent.com/metinfarukbiyik/yt-download/main/version.json',
+        'https://raw.githubusercontent.com/metinfarukbiyik/yt-download/main/public/version.json',
         {
           cache: 'no-store', // Her zaman en güncel veriyi al
           headers: {
