@@ -18,19 +18,4 @@ const nextConfig = {
   }
 }
 
-module.exports = {
-  ...nextConfig,
-  async headers() {
-    return [
-      {
-        source: '/api/download',
-        headers: [
-          {
-            key: 'x-vercel-function-duration',
-            value: '60'
-          }
-        ]
-      }
-    ]
-  }
-} 
+module.exports = nextConfig 
