@@ -1,6 +1,6 @@
-# 🎵 YouTube MP3 İndirme Uygulaması
+# 🎵 YouTube MP3 İndirici - Local ve Reklamsız
 
-Bu uygulama, YouTube videolarından yüksek kaliteli MP3 formatında müzik indirmenizi sağlar. Modern ve kullanıcı dostu arayüzü ile kolay kullanım sunar. Tamamen ücretsiz ve reklamsız olarak local'de çalışır.
+Bu uygulama, YouTube videolarından yüksek kaliteli MP3 formatında müzik indirmenizi sağlar. Tamamen local çalışan, reklamsız ve özelleştirilebilir yapısı ile kullanıcı dostu bir deneyim sunar.
 
 ## 🌟 Neden Bu Uygulama?
 

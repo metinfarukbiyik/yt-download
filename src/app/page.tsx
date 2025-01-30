@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Head from "next/head";
 import { checkForUpdates } from "../utils/versionCheck";
 
 export default function Home() {
@@ -153,11 +152,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>YouTube MP3 Downloader - Ücretsiz Müzik İndirme</title>
-        <meta name="description" content="YouTube videolarından yüksek kaliteli MP3 formatında müzik indirin. Hızlı, güvenli ve ücretsiz!" />
-      </Head>
-
       {/* Güncelleme Bildirimi */}
       {updateAvailable && updateInfo && (
         <div className="fixed top-4 right-4 max-w-sm z-50">
@@ -237,12 +231,12 @@ export default function Home() {
                     </svg>
                   </div>
                   <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-5xl font-extrabold tracking-tight heading-gradient mb-2">
-                    YouTube MP3 İndirme
+                    YouTube MP3 İndirici
                   </h1>
                 </div>
                 <div className="w-24 h-1 rounded-full bg-gradient-to-r from-blue-500/50 via-purple-500/50 to-pink-500/50 mb-4" />
                 <p className="text-lg text-gray-300 font-light tracking-wide max-w-2xl">
-                  Favori YouTube videolarınızı yüksek kaliteli MP3 formatında indirin
+                  Favori YouTube videolarınızı reklamsız ve local olarak yüksek kalitede indirin
                 </p>
               </div>
             </div>
