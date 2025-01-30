@@ -16,6 +16,11 @@ const nextConfig = {
     };
     return config;
   },
+  functions: {
+    'api/download': {
+      maxDuration: 60
+    }
+  }
 }
 
 module.exports = nextConfig 
