@@ -1,101 +1,132 @@
-# YouTube MP3 İndirici
+# 🎵 YouTube MP3 İndirme Uygulaması
 
-Modern ve kullanıcı dostu bir YouTube MP3 indirme uygulaması. YouTube videolarını yüksek kaliteli MP3 formatında indirmenizi sağlar.
+Bu uygulama, YouTube videolarından yüksek kaliteli MP3 formatında müzik indirmenizi sağlar. Modern ve kullanıcı dostu arayüzü ile kolay kullanım sunar.
 
-## 🚀 Özellikler
+## ✨ Özellikler
 
-- 🎵 Yüksek kaliteli MP3 indirme (320kbps)
-- 📱 Responsive tasarım
-- ⚡ Hızlı indirme
+- 🎯 Kolay kullanım
 - 🎨 Modern ve şık arayüz
-- 🔄 Format seçenekleri
-- 💫 Animasyonlu arka plan
-- 🎥 Video önizleme
-- 🆓 Tamamen ücretsiz
+- 🔊 Yüksek kaliteli ses (320kbps)
+- 🚀 Hızlı indirme
+- 📱 Responsive tasarım
+- 🔄 Otomatik güncelleme sistemi
 
 ## 🛠️ Kurulum
 
 ### Gereksinimler
 
 - Node.js (v18 veya üzeri)
-- Python
-- yt-dlp
+- npm (Node Package Manager)
+- Git
 
-### Kurulum Adımları
+### Windows'ta Kurulum 💻
 
-1. Repoyu klonlayın:
-```bash
-git clone https://github.com/yourusername/youtube-downloader.git
-cd youtube-downloader
-```
+1. Node.js'i indirin ve kurun:
+   - 🔗 [Node.js İndirme Sayfası](https://nodejs.org/)
+   - İndirilen .exe dosyasını çalıştırın
+   - Kurulum sihirbazını takip edin
 
-2. Bağımlılıkları yükleyin:
-```bash
-npm install
-```
+2. Projeyi indirin:
+   ```bash
+   # Masaüstüne veya istediğiniz bir klasöre gidin
+   cd Desktop
 
-3. yt-dlp'yi yükleyin:
-```bash
-# macOS için
-brew install yt-dlp
+   # Projeyi klonlayın
+   git clone https://github.com/metinfarukbiyik/yt-download.git
 
-# Linux için
-sudo apt install yt-dlp
+   # Proje klasörüne girin
+   cd yt-download
+   ```
 
-# Windows için
-pip install yt-dlp
-```
+3. Bağımlılıkları yükleyin:
+   ```bash
+   npm install
+   ```
 
-4. Geliştirme sunucusunu başlatın:
-```bash
-npm run dev
-```
+4. Uygulamayı başlatın:
+   ```bash
+   npm run dev
+   ```
 
-5. Tarayıcınızda açın:
-```
-http://localhost:3000
-```
+### macOS'ta Kurulum 🍎
 
-## 🚀 Dağıtım
+1. Homebrew ile Node.js'i kurun:
+   ```bash
+   # Homebrew kurulu değilse:
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-1. Projeyi derleyin:
-```bash
-npm run build
-```
+   # Node.js kurulumu
+   brew install node
+   ```
 
-2. Üretim sunucusunu başlatın:
-```bash
-npm run start
-```
+2. Projeyi indirin:
+   ```bash
+   # İstediğiniz klasöre gidin
+   cd Desktop
 
-## 🔧 Teknolojiler
+   # Projeyi klonlayın
+   git clone https://github.com/metinfarukbiyik/yt-download.git
 
-- Next.js 13
-- TypeScript
-- Tailwind CSS
-- yt-dlp
-- Node.js
+   # Proje klasörüne girin
+   cd yt-download
+   ```
 
-## 📝 Kullanım
+3. Bağımlılıkları yükleyin:
+   ```bash
+   npm install
+   ```
 
-1. YouTube video URL'sini yapıştırın
-2. "Dönüştür" butonuna tıklayın
-3. İndirme tamamlandığında "İndir" butonuna tıklayın
-4. MP3 dosyanız otomatik olarak indirilecektir
+4. Uygulamayı başlatın:
+   ```bash
+   npm run dev
+   ```
 
-## ⚠️ Notlar
+## 🎯 Kullanım
 
-- Telif hakkı korumalı içerikleri indirmek yasaktır
-- Yalnızca kişisel kullanım için tasarlanmıştır
-- İndirme hızı internet bağlantınıza ve video uzunluğuna bağlıdır
+1. Tarayıcınızda `http://localhost:3000` adresini açın
+2. YouTube video URL'sini yapıştırın
+3. "Dönüştür" butonuna tıklayın
+4. İndirme tamamlandığında "İndir" butonuna tıklayın
+
+## 🔄 Güncelleme Sistemi
+
+Uygulama otomatik güncelleme sistemine sahiptir:
+
+- 🔔 Yeni bir güncelleme olduğunda sağ üst köşede bildirim görünür
+- 📥 "İndir" butonuna tıklayarak en son sürümü indirebilirsiniz
+- 📋 Değişiklik notları bildirimde görüntülenir
+
+### Versiyon Numaralandırma
+
+- İlk rakam (1.x.x): Büyük değişiklikler
+- İkinci rakam (x.1.x): Yeni özellikler
+- Üçüncü rakam (x.x.1): Hata düzeltmeleri
+
+## 🐛 Hata Bildirimi
+
+Herhangi bir hata ile karşılaşırsanız:
+1. GitHub Issues bölümünden yeni bir issue açın
+2. Hatanın detaylı açıklamasını yazın
+3. Mümkünse ekran görüntüsü ekleyin
+
+## 📝 Lisans
+
+Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
 
 ## 👨‍💻 Geliştirici
 
-[Metin Faruk Bıyık](https://biyik.dev)
+[Metin Faruk BIYIK](https://biyik.dev)
 
-## 📄 Lisans
+---
 
-Bu proje MIT lisansı altında lisanslanmıştır. Daha fazla bilgi için [LICENSE](LICENSE) dosyasına bakın.
-# youtube-downloader
-# youtube-downloader
-# yt-download
+## 🌟 Katkıda Bulunma
+
+1. Bu repository'yi fork edin
+2. Yeni bir branch oluşturun (`git checkout -b feature/amazing-feature`)
+3. Değişikliklerinizi commit edin (`git commit -m 'feat: Add amazing feature'`)
+4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
+5. Pull Request oluşturun
+
+---
+
+Made with ❤️ in Turkey

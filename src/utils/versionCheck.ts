@@ -27,6 +27,7 @@ export async function checkForUpdates(): Promise<{
         throw new Error('Lokal versiyon dosyası bulunamadı');
       }
       localVersion = await localResponse.json();
+      console.log('Local version:', localVersion); // Debug log
     } catch (error) {
       console.error('Lokal versiyon okuma hatası:', error);
       return {
@@ -37,24 +38,35 @@ export async function checkForUpdates(): Promise<{
 
     // GitHub'dan version.json dosyasını çek
     try {
-      const response = await fetch(
-        'https://raw.githubusercontent.com/metinfarukbiyik/yt-download/main/public/version.json',
-        {
-          cache: 'no-store', // Her zaman en güncel veriyi al
-          headers: {
-            'Accept': 'application/json'
-          }
+      const githubUrl = 'https://raw.githubusercontent.com/metinfarukbiyik/yt-download/main/public/version.json';
+      console.log('Fetching from GitHub:', githubUrl); // Debug log
+      
+      const response = await fetch(githubUrl, {
+        cache: 'no-store',
+        headers: {
+          'Accept': 'application/json'
         }
-      );
+      });
       
       if (!response.ok) {
+        console.error('GitHub response status:', response.status); // Debug log
         throw new Error('GitHub\'dan versiyon bilgisi alınamadı');
       }
 
       const onlineVersion: VersionInfo = await response.json();
+      console.log('Online version details:', {
+        version: onlineVersion.version,
+        lastUpdate: onlineVersion.lastUpdate,
+        changeNotes: onlineVersion.changeNotes
+      }); // Detailed debug log
       
       // Versiyonları karşılaştır
       const hasUpdate = compareVersions(onlineVersion.version, localVersion.version);
+      console.log('Version comparison:', {
+        online: onlineVersion.version,
+        local: localVersion.version,
+        hasUpdate
+      }); // Detailed debug log
 
       return {
         hasUpdate,
@@ -62,7 +74,6 @@ export async function checkForUpdates(): Promise<{
       };
     } catch (error) {
       console.error('Online versiyon kontrol hatası:', error);
-      // Online versiyon alınamazsa güncelleme yok say
       return {
         hasUpdate: false,
         error: 'Güncelleme kontrolü yapılamadı'
