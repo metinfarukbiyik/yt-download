@@ -15,14 +15,22 @@ const nextConfig = {
       stream: require.resolve('stream-browserify'),
     };
     return config;
-  },
-  serverless: {
-    functions: {
-      'api/download': {
-        maxDuration: 60
-      }
-    }
   }
 }
 
-module.exports = nextConfig 
+module.exports = {
+  ...nextConfig,
+  async headers() {
+    return [
+      {
+        source: '/api/download',
+        headers: [
+          {
+            key: 'x-vercel-function-duration',
+            value: '60'
+          }
+        ]
+      }
+    ]
+  }
+} 
